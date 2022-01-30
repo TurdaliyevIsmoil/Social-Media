@@ -1,0 +1,62 @@
+$main: #004b51;
+$second: #ff6913;
+.user-description {
+    padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  height: 100%;
+  .img-overlay {
+    width: 80px;
+    height: 80px;
+    background-size: cover !important;
+    background-position: center;
+    border-radius: 50%;
+  }
+  .title{
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 90%;
+      .name{
+          font-size: 28px;
+          text-transform: capitalize;
+      }
+      .email{
+          font-size: 16px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          color: $second;
+      }
+  }
+  .social-media{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a{
+          width: 40px;
+          margin: 10px 10px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all .3s;
+          background-color: #4dd962;
+          cursor: pointer;
+          &:hover{
+              background-color: $second;
+
+          }
+          img{
+              width: 20px;
+          }
+      }
+      .copied{
+          background-color: $second;
+      }
+  }
+}

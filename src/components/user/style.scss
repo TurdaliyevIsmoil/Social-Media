@@ -1,0 +1,85 @@
+$main: #004b51;
+$second: #ff6913;
+.user-item {
+  margin: 10px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 15px;
+  width: 100%;
+  transition: all .3s;
+  &:hover{
+      background: $second;
+  }
+  .img-overlay {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    .image {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background-position: center !important;
+      background-size: cover !important;
+      resize: both;
+    }
+    .is-online {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      z-index: 2;
+      border-radius: 50%;
+      bottom: -5px;
+      right: -5px;
+    }
+    .online {
+      background: rgb(0, 163, 0);
+    }
+    .offline {
+      background: rgb(165, 165, 165);
+      border: 1px solid white;
+    }
+  }
+  .content {
+    width: 75%;
+    .name {
+      font-size: 20px;
+      margin-top: 0px;
+      white-space: nowrap;
+      width: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      text-transform: capitalize;
+    }
+    p{
+      margin-bottom: 0 !important;
+      font-size: 14px;
+      max-width: 100%;
+      white-space: nowrap; 
+      overflow: hidden;
+      text-overflow: ellipsis; 
+      opacity: .7;
+      b{
+        opacity: .5;
+      }
+    }
+  }
+}
+.unread-message{
+  background-color: $second;
+  color: white;
+  margin-left: -15px;
+  border-radius: 20px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  padding: 5px;
+}
+.user-item.selected-user{
+  background-color: $main;
+}

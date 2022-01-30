@@ -1,0 +1,28 @@
+$main: #004b51;
+$second: #ff6913;
+
+.user-information {
+  box-sizing: border-box;
+  background-color: $second;
+  height: 60px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+  .title {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    h2 {
+        margin-bottom: 0px;
+      font-size: 20px;
+      text-transform: capitalize;
+      color: white;
+      opacity: 1 !important;
+    }
+  }
+}

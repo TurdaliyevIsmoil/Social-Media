@@ -1,0 +1,114 @@
+$main: #004b51;
+$second: #ff6913;
+.back-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.541);
+  top: 0;
+  left: 0;
+  .editImgContent {
+    z-index: 999;
+    background-color: #1d2226;
+    border-radius: 15px;
+    color: white;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(58, 58, 58, 0.253);
+    width: 90%;
+    max-width: 500px;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(179, 179, 179, 0.342);
+      img {
+        width: 30px;
+      }
+    }
+    .content {
+      margin: 20px auto;
+      width: 200px !important;
+      overflow: hidden;
+      height: 200px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      & > img {
+        min-width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+      }
+      .actions{
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.493);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        gap: 30px;
+        transition: all .5s;
+        &:hover{
+          opacity: 1;
+        }
+        label{
+          cursor: pointer;
+          &:hover{
+            opacity: .5;
+          }
+        }
+      }
+    }
+    .upload-new-img{
+      margin: 20px 0;
+    }
+    .form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      input{
+        width: 90%;
+        padding-top: 5px 20px;
+        color: white;
+        border: none;
+        background-color: #fff0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.521);
+        &:focus{
+          outline: none;
+        }
+        &.email{
+          color: rgba(255, 255, 255, 0.548);
+        }
+      }
+      button{
+        padding: 10px 60px;
+        background-color: $second;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+      }
+
+    }
+    .main{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+    }
+   
+  }
+}

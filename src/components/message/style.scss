@@ -1,0 +1,37 @@
+$main: #004b51;
+$second: #ff6913;
+
+.message-container{
+    padding: 15px;
+    background-color: #008c7d;
+    margin: 10px;
+    color: white;
+    position: relative;
+    width: fit-content;
+    min-width: 150px;   
+    max-width: 70%;
+    border-radius: 15px 15px 15px 0;
+    .media{
+        img{
+            width: 400px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+    }
+    p{
+        margin-bottom: 0 !important;
+        padding-bottom: 10px;
+    }
+    small{
+        font-size: 12px;
+        position: absolute;
+        opacity: .5;
+        right: 10px;
+        bottom: 10px;
+    }
+}
+.message-container.mine{
+    background-color: $main;
+    margin-left: auto;
+    border-radius: 15px 15px 0 15px;
+}
