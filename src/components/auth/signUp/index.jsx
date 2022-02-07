@@ -12,6 +12,7 @@ export default function SignUp() {
     password: "",
   });
   const inputChangeHandler = (event) => {
+
     const name = event.target.name;
     const value = event.target.value;
     setvalues({
@@ -19,6 +20,9 @@ export default function SignUp() {
       [name]: value,
     });
   };
+
+ 
+
   const submitHandler = (event) => {
     event.preventDefault();
     async function sendRequest() {

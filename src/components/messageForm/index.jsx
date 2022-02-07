@@ -12,7 +12,7 @@ export default function MessageForm({value, setvalue, handleSubmit, setimg}) {
         handleSubmit()
         setselectedFile(false)
     }
-    return (<form className='message-form' onSubmit={submitHandler}>
+    return (<form className='message-form' autoComplete='off' onSubmit={submitHandler}>
         <label className=''>
         <img className='uploader' src={`https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/${selectedFile ? 'ff6913' : 'ffffff'}/external-link-multimedia-kiranshastry-lineal-kiranshastry.png`}/>
 

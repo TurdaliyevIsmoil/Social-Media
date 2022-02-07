@@ -8,7 +8,6 @@ body {
   background-color: rgb(2, 11, 17);
   color: white;
   scrollbar-width: thin !important;
-  min-width: 1250px !important;
   overflow: auto;
 }
 /* width */
@@ -36,4 +35,9 @@ code {
 a{
   color: white;
   text-decoration: none;
+}
+.flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

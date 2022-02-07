@@ -1,8 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Moment from "react-moment";
+import ImageModal from "../imageModal";
 import "./style.scss";
 
 export default function Message({ message, owner }) {
+  const [modalimg, setmodalimg] = useState(false);
+  const setimg = () => { setmodalimg(!modalimg) }
   const scroller = useRef();
   useEffect(() => {
     scroller.current?.scrollIntoView({ behavior: "smooth" });
@@ -13,14 +16,19 @@ export default function Message({ message, owner }) {
       ref={scroller}
     >
       {message.media && (
-        <div className="media">
-          <img src={message.media} alt="" />
-        </div>
+        <>
+          <ImageModal open={modalimg} close={setimg} ><img src={message.media} alt=""/></ImageModal>
+          <div className="media">
+            <img src={message.media} alt="" onClick={setimg} />
+          </div>
+        </>
+
       )}
       <p>{message.message}</p>
       <small>
         <Moment fromNow>{message.createdAt.toDate()}</Moment>
       </small>
+
     </div>
   );
 }

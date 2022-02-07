@@ -1,13 +1,20 @@
 import { useState, useRef } from 'react';
 import './style.scss';
 import img from '../../images/none-user.webp';
+import ImageModal from '../imageModal';
 
-export default function FullUserDescrition({ user }) {
+export default function FullUserDescrition({ user, toggleUser }) {
+    const [image, setimage] = useState(false);
     const [copy, setcopy] = useState(false);
+
+    const toggle = () => { setimage(!image) }
+
     return (<div className='user-description'>
         <div className="img-overlay"
             style={{ background: `url(${user.img ? user.img : img}` }}
-        ></div>
+        >
+            {user.img && <div className="overlay flex-center" onClick={toggle}><img src="https://img.icons8.com/ios-filled/50/ffffff/plus.png" /></div>}
+        </div>
         <div className="title">
             <div className="name">{user.name}</div>
             <div className="email">{user.email}</div>
@@ -27,5 +34,7 @@ export default function FullUserDescrition({ user }) {
                 <img src="https://img.icons8.com/ios-glyphs/60/020b11/share--v1.png" />
             </a>
         </div>
+        <div className="btn" onClick={toggleUser}>Close</div>
+        <ImageModal close={toggle} open={image}><img src={user.img || null}/></ImageModal>
     </div>);
 }

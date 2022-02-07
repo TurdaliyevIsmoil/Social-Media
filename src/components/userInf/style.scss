@@ -9,20 +9,34 @@ $second: #ff6913;
   border-radius: 15px;
   width: auto;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-between !important;
   .title {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-    h2 {
-        margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    .name {
+      text-align: center;
+      margin-bottom: 0px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @media screen and (max-width: 460px) {
+        max-width: 150px;
+      }
       font-size: 20px;
       text-transform: capitalize;
       color: white;
       opacity: 1 !important;
     }
+  }
+  .toggle {
+    position: absolute;
+    right: 15px;
   }
 }

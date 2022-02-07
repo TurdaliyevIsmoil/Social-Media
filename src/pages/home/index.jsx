@@ -27,6 +27,7 @@ import Profile from "../../components/profile";
 
 export default function HomePage() {
 
+
   window.onbeforeunload = function () {
     return offlineHandler();
   };
@@ -37,9 +38,12 @@ export default function HomePage() {
   const [img, setimg] = useState();
   const [messages, setmessages] = useState([]);
   const [modal, setmodal] = useState(false);
+  const [userInformation, setuserInformation] = useState(false);
 
   const owner = auth.currentUser.uid;
   let friend = chat ? chat.uid : null;
+
+  const toggleUserInformation = () => { setuserInformation(!userInformation) }
 
   useEffect(async () => {
     // Make online
@@ -154,28 +158,30 @@ export default function HomePage() {
         <div className="chat-container">
           <div className="users-list">
             <div className="title">
-              Contacts
+              <span>Contacts</span>
               <div class="dropdown">
                 <a className="d-flex align-items-center" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <img width='25px' src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png" />
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a class="dropdown-item" onClick={()=>setmodal(!modal)}>Profile</a></li>
+                  <li><a class="dropdown-item" onClick={() => setmodal(!modal)}>Profile</a></li>
                   <li><a class="dropdown-item" onClick={logout}>Logout</a></li>
                 </ul>
               </div>
             </div>
-            {users.map((user) => (
-              <User user={user} key={user.uid} owner={owner} select={selectChat} chat={chat?.uid} />
-            ))}
-          </div>
+            <div className="users">
+              {users.map((user) => (
+                <User user={user} key={user.uid} owner={owner} select={selectChat} chat={chat?.uid} />
+              ))}
+            </div>
 
+          </div>
 
           <div className="empty-chat">
 
             {chat ? <>
               <div className="chat">
-                <UserInf user={chat} />
+                <UserInf user={chat} toggle={toggleUserInformation} />
                 <div className="message">
                   {messages
                     ? messages.map((message) => (
@@ -195,14 +201,14 @@ export default function HomePage() {
 
             </> : <div className="empty-message">
               <p>
-              Select chat...
+                Select chat...
               </p>
-              </div>
+            </div>
             }
           </div>
-          <div className="user">
-            {chat && <FullUserDescrition user={chat}/> }
-          </div>
+
+          {chat && userInformation && <div className="user"><FullUserDescrition user={chat} toggleUser={toggleUserInformation} /> </div>}
+
         </div>
       </div>
 

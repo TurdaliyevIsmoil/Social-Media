@@ -2,6 +2,9 @@ $main: #004b51;
 $second: #ff6913;
 
 .message-container{
+    @media screen and (max-width:676px) {
+        padding: 10px;
+    }
     padding: 15px;
     background-color: #008c7d;
     margin: 10px;
@@ -13,7 +16,8 @@ $second: #ff6913;
     border-radius: 15px 15px 15px 0;
     .media{
         img{
-            width: 400px;
+            max-width: 400px;
+            width: 100%;
             border-radius: 10px;
             margin-bottom: 10px;
         }
@@ -21,6 +25,10 @@ $second: #ff6913;
     p{
         margin-bottom: 0 !important;
         padding-bottom: 10px;
+        @media screen and (max-width:676px) {
+            font-size: 14px;
+            font-family: sans-serif;
+        }
     }
     small{
         font-size: 12px;

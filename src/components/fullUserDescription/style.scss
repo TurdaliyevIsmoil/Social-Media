@@ -1,62 +1,104 @@
 $main: #004b51;
 $second: #ff6913;
 .user-description {
-    padding-top: 10%;
+  padding-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  @media screen and (max-width: 991px) {
+    justify-content: center;
+    height: auto;
+    background-color: $main;
+    padding: 20px;
+    width: 300px;
+    border-radius: 15px;
+  }
   gap: 15px;
   height: 100%;
   .img-overlay {
     width: 80px;
     height: 80px;
+    flex-shrink: 0;
     background-size: cover !important;
-    background-position: center;
+    background-position: center !important;
     border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+    }
+    .overlay {
+      transition: all 0.3s;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.363);
+      img {
+        width: 30px;
+      }
+    }
   }
-  .title{
+  .title {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    .name {
+      font-size: 28px;
+      text-transform: capitalize;
+    }
+    .email {
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      font-size: 16px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: $second;
       max-width: 90%;
-      .name{
-          font-size: 28px;
-          text-transform: capitalize;
-      }
-      .email{
-          font-size: 16px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          color: $second;
-      }
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
   }
-  .social-media{
+  .social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      width: 40px;
+      margin: 10px 10px;
+      height: 40px;
+      border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-      a{
-          width: 40px;
-          margin: 10px 10px;
-          height: 40px;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          transition: all .3s;
-          background-color: #4dd962;
-          cursor: pointer;
-          &:hover{
-              background-color: $second;
-
-          }
-          img{
-              width: 20px;
-          }
+      transition: all 0.3s;
+      background-color: #4dd962;
+      cursor: pointer;
+      &:hover {
+        background-color: $second;
       }
-      .copied{
-          background-color: $second;
+      img {
+        width: 20px;
       }
+    }
+    .copied {
+      background-color: $second;
+    }
+  }
+  .btn {
+    @media screen and (max-width: 991px) {
+      display: block;
+    }
+    display: none;
+    color: white;
   }
 }
